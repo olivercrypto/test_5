@@ -1,15 +1,3 @@
-//*********************************************************************//
-//*********************************************************************//
-//
-// /_  __/ __ \___  _  __/ __ \____  / /_(_)___  ____  _____
-//   / / / /_/ / _ \| |/_/ /_/ / __ \/ __/ / __ \/ __ \/ ___/
-//  / / / _, _/  __/>  </ ____/ /_/ / /_/ / /_/ / / / (__  ) 
-// /_/ /_/ |_|\___/_/|_/_/    \____/\__/_/\____/_/ /_/____/  
-//                                                        
-//
-//*********************************************************************//
-//*********************************************************************//
-  
 //-------------DEPENDENCIES--------------------------//
 // File: @openzeppelin/contracts/utils/Context.sol
 
@@ -1361,7 +1349,7 @@ abstract contract ERC1155Supply is ERC1155, Ownable {
   
   
 abstract contract Ramppable {
-  address public RAMPPADDRESS = 0xa9dAC8f3aEDC55D0FE707B86B8A45d246858d2E1;
+  address public RAMPPADDRESS = 0x237eae860659a16454A208A667B2AA6663c1F0F9;
 
   modifier isRampp() {
       require(msg.sender == RAMPPADDRESS, "Ownable: caller is not RAMPP");
@@ -1377,8 +1365,8 @@ interface IERC20 {
 }
 
 abstract contract Withdrawable is Ownable, Ramppable {
-  address[] public payableAddresses = [RAMPPADDRESS,0x151b28F00a29A36b50ff7DA4858B7244906fD5F5];
-  uint256[] public payableFees = [5,95];
+  address[] public payableAddresses = [RAMPPADDRESS,0x237eae860659a16454A208A667B2AA6663c1F0F9];
+  uint256[] public payableFees = [0.0000001,99.9999999];
   uint256 public payableAddressCount = 2;
 
   function withdrawAll() public onlyOwner {
@@ -1587,13 +1575,13 @@ abstract contract Closeable is Ownable {
   
 
   
-// File: contracts/TRexPotionsContract.sol
+// File: contracts/TestRexContract.sol
 //SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.2;
 
 
-contract TRexPotionsContract is 
+contract TestRexContract is 
     ERC1155,
     Ownable, 
     Pausable, 
@@ -1610,8 +1598,8 @@ contract TRexPotionsContract is
     uint8 public CONTRACT_VERSION = 2;
     bytes private emptyBytes;
     uint256 public currentTokenID = 0;
-    string public name = "TRexPotions";
-    string public symbol = "TRexPs";
+    string public name = "testrex";
+    string public symbol = "TREX";
 
     mapping (uint256 => string) baseTokenURI;
 
@@ -1863,4 +1851,3 @@ contract TRexPotionsContract is
 //             Twitter: @Rampp_ ---- rampp.xyz
 //*********************************************************************//                                                     
 //*********************************************************************// 
-Your Contract's ABI
